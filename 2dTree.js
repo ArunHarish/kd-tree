@@ -63,7 +63,7 @@ class kdTree {
         this.#root = null;
     }
 
-    _rangeQueryTraversal(currentNode, boundary, resultArray) {
+    _rangeQueryTraversalCollect(currentNode, boundary, resultArray) {
         let { x1 : minX, x2 : maxX, y1 : minY, y2 : maxY } = boundary;
         let value = currentNode.getValue();
 
@@ -90,7 +90,7 @@ class kdTree {
         }
 
         if (value > min && left) {
-            this._rangeQueryTraversal(left, boundary, resultArray);
+            this._rangeQueryTraversalCollect(left, boundary, resultArray);
         }
 
         if (currentNode instanceof RangePointNode && 
@@ -101,7 +101,7 @@ class kdTree {
         }
 
         if (value < max && right) {
-            this._rangeQueryTraversal(right, boundary, resultArray);
+            this._rangeQueryTraversalCollect(right, boundary, resultArray);
         }
 
     }
@@ -178,21 +178,14 @@ class kdTree {
         return sortedArray;
     }
 
-    rangeQuery(boundary, counter) {
+    rangeQuery(boundary) {
         let root = this.#root;
         let queryResult = [];
         if (root) {
-            this._rangeQueryTraversal(root, boundary, queryResult, counter);
+            this._rangeQueryTraversalCollect(root, boundary, queryResult);
         }
 
         return queryResult;
-    }
-
-    traverse() {
-        // this._inorderTraversal(
-        //     this.#root
-        // );
-        console.log(this.#root);
     }
     
 }
