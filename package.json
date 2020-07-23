@@ -1,0 +1,27 @@
+{
+  "name": "kd-tree",
+  "version": "1.0.0",
+  "description": "kd-tree javascript implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "serve -s ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArunHarish/kd-tree.git"
+  },
+  "keywords": [
+    "kd-tree",
+    "try"
+  ],
+  "author": "Arun Harish Balasubramonian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArunHarish/kd-tree/issues"
+  },
+  "homepage": "https://github.com/ArunHarish/kd-tree#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
